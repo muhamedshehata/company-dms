@@ -1,8 +1,8 @@
 ﻿# Company Document Management System (DMS)
 
-**Document ID:** DOC-PROJ-001  
-**Version:** 1.0-draft  
-**Status:** Draft — Pending Review  
+**Document ID:** DOC-PROJ-001
+**Version:** 1.0-draft
+**Status:** Draft — Pending Review
 **Last Updated:** 2026-10-25
 
 ## 1. Project Purpose
@@ -20,7 +20,7 @@ The currently known project context is:
 - Departments include Accounting, Finance, HR, Purchasing, Sales, and Management.
 - The company uses Odoo.
 - Microsoft 365 is available.
-- An existing Windows server is available.
+- An existing Windows server is available as company infrastructure; it is not the selected direction for production DMS hosting.
 - A Canon imageFORMULA DR-M160II document scanner is available.
 
 These are discovery inputs, not a complete or verified requirements specification.
@@ -34,7 +34,7 @@ These are discovery inputs, not a complete or verified requirements specificatio
 5. Maintain document history and audit records.
 6. Support backup and recovery.
 7. Provide a documented path for future Odoo and Microsoft 365 integration.
-8. Keep storage replaceable so local storage and cloud storage can be evaluated independently.
+8. Follow a cloud-first production hosting direction while keeping the document storage implementation replaceable.
 9. Establish automated tests for documented business rules.
 
 ## 4. Initial Scope
@@ -54,26 +54,26 @@ The exact MVP scope will be approved in the requirements phase.
 
 ## 5. Out of Scope for Initial Approval
 
-The following are not yet approved as initial-release features:
+The following are not yet approved as initial-release features or final technical selections:
 
 - AI-based document decisions or autonomous approvals.
 - Electronic signatures or digital seals.
 - Automated deletion of original paper records.
 - Production integration with Odoo.
 - Production integration with Microsoft 365.
-- A final cloud provider or hosting architecture.
+- Selection of a final cloud provider, application hosting model, database service, or document storage service.
 
-These may be considered after requirements and feasibility review.
+These may be considered or finalized after requirements and architecture evaluation. Cloud-first production hosting is the current project direction; the specific provider and architecture remain undecided.
 
 ## 6. Architecture Direction
 
-The selected direction is a custom-built DMS.
+The selected product direction is a custom-built DMS with cloud-first production hosting, as documented in ADR-010.
 
-The system should be designed to support a Windows-based local deployment initially, subject to technical validation, while preserving the option to use cloud storage later.
+The application must keep business logic independent of a specific physical storage path or storage vendor. Document storage should be accessed through a replaceable abstraction where practical.
 
-Business logic must not depend directly on a specific physical storage path or storage vendor.
+The cloud provider, application hosting model, database, document storage service, application framework, and OCR engine remain undecided pending architecture evaluation.
 
-The database, application framework, OCR engine, and deployment architecture remain undecided.
+The existing Windows server remains part of the company's available infrastructure but is not the default production hosting target under the current cloud-first direction.
 
 ## 7. Security and Confidentiality
 
@@ -117,11 +117,11 @@ Milestone scope and completion criteria must be documented before implementation
 - What metadata is required for each document type?
 - What are the actual approval and retrieval workflows?
 - Which Odoo version and deployment model are in use?
-- What are the Windows server specifications and available storage?
 - Which Microsoft 365 licenses are available?
+- Which cloud provider and application hosting model best fit the requirements?
 - Which database, application framework, and OCR engine best fit the requirements?
 - What retention and disposal policies apply to each document category?
-- What backup, recovery, and availability targets are required?
+- What backup, recovery, data-location, security, and availability targets are required?
 
 ## 11. Approval
 
